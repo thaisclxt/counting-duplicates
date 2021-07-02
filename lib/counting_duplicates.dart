@@ -1,17 +1,15 @@
-int duplicateCount(String? text)
-{
+int duplicateCount(String? text) {
+  final parsedText = text?.toLowerCase() ?? '';
   var count = 0;
-  var repeat_letters = <String>[];;
+  var repeatLetters = <String>[];
 
-  for(var index = 0; index < text!.length - 1; index++)
-  {
-    for(var load = index + 1; load < text.length; load++)
-    {
-      if((text[index] == text[load] || text[index] == text[load].toUpperCase() || text[index] == text[load].toLowerCase()) && (!repeat_letters.contains(text[index]) && !repeat_letters.contains(text[index].toLowerCase()) && !repeat_letters.contains(text[index].toUpperCase())))
-      {
+  for (var index = 0; index < parsedText.length - 1; index++) {
+    for (var load = index + 1; load < parsedText.length; load++) {
+      if (parsedText[index] == parsedText[load] &&
+          !repeatLetters.contains(parsedText[index])) {
         count++;
-        repeat_letters.add(text[index]);
-        print(repeat_letters);
+        repeatLetters.add(parsedText[index]);
+        print(repeatLetters);
         break;
       }
     }
