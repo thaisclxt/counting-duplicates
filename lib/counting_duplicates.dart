@@ -1,19 +1,16 @@
 int duplicateCount(String? text) {
   final parsedText = text?.toLowerCase() ?? '';
-  var count = 0;
-  var repeatLetters = <String>[];
+  var dict = <String, int>{};
 
-  for (var index = 0; index < parsedText.length - 1; index++) {
-    for (var load = index + 1; load < parsedText.length; load++) {
-      if (parsedText[index] == parsedText[load] &&
-          !repeatLetters.contains(parsedText[index])) {
-        count++;
-        repeatLetters.add(parsedText[index]);
-        print(repeatLetters);
-        break;
-      }
-    }
-  }
+  parsedText.split('').forEach((letter) {
+    dict.update(
+      letter,
+      (value) => value + 1,
+      ifAbsent: () => 0,
+    );
+  });
 
-  return count;
+  dict.removeWhere((key, value) => value == 0);
+
+  return dict.length;
 }
