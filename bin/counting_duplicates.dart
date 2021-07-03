@@ -1,8 +1,8 @@
-import 'package:counting_duplicates/counting_duplicates.dart' as counting_duplicates;
+import 'package:counting_duplicates/counting_duplicates.dart'
+    as counting_duplicates;
 import 'dart:io';
 
-void main(List<String> arguments) 
-{
+void main(List<String> arguments) {
   var text = stdin.readLineSync();
-  print('"$text" -> ${counting_duplicates.duplicateCount(text)}');
+  print(counting_duplicates.duplicateCount(text));
 }
